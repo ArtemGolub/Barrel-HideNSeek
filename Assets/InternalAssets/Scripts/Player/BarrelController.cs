@@ -2,21 +2,32 @@ using UnityEngine;
 
 public class BarrelController : MonoBehaviour
 {
-    [HideInInspector]public BarrelAnimationControll _animator;
-
+    private PlayerComponents _playerComponents;
+    
+    [HideInInspector] public BarrelAnimationControll _animator;
+    private Transform _barrel;
     private void Start()
     {
-        _animator = GetComponent<BarrelAnimationControll>();
-    }
+        _playerComponents = GetComponent<PlayerComponents>();
+        _barrel = _playerComponents.Barrel;
+        _animator = _barrel.GetComponent<BarrelAnimationControll>();
 
+        GetBarrel(_playerComponents.BarrelHandler);
+    }
     public void GetBarrel(Transform barrelHolder)
     {
-        transform.SetParent(barrelHolder);
-        transform.position = barrelHolder.position;
+        if(_playerComponents.Barrel == null) return;
+        
+        var barrel = _playerComponents.Barrel;
+        barrel.SetParent(barrelHolder);
+        barrel.position = barrelHolder.position;
     }
 
     public void RemoveBarrel()
     {
-        transform.SetParent(null);
+        if(_playerComponents.Barrel == null) return;
+        
+        var barrel = _playerComponents.Barrel;
+        barrel.transform.SetParent(null);
     }
 }

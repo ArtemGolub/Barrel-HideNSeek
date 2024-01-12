@@ -8,12 +8,10 @@ using StateManager;
         private StateMachine _SM;
         private Player_Hide _hide;
         private Player_Move _move;
-
-        private bool isMoving()
+        public bool isMoving()
         {
             return _playerComponents.Joystick.Horizontal != 0 || _playerComponents.Joystick.Vertical != 0;
         }
-        
         private void Awake()
         {
             InitComponents();

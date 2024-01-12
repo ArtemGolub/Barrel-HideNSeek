@@ -7,6 +7,8 @@ public class Player_Move: State
     private PlayerComponents _playerComponents;
     
     private PlayerAnimationControll _animationControll;
+    private BarrelAnimationControll _barrelAnimationControll;
+    
     private Rigidbody _rigidbody;
     public FixedJoystick _joystick;
     
@@ -22,11 +24,13 @@ public class Player_Move: State
     public override void Enter()
     {
         _animationControll.MoveAnimation(true);
+        _barrelAnimationControll.IsMove(true);
     }
 
     public override void Exit()
     {
-        _animationControll.MoveAnimation(true);
+        _animationControll.MoveAnimation(false);
+        _barrelAnimationControll.IsMove(false);
     }
 
     public override void Update()
@@ -39,6 +43,8 @@ public class Player_Move: State
         _animationControll = _playerComponents.AnimationControll;
         _rigidbody = _playerComponents.Rigidbody;
         _joystick = _playerComponents.Joystick;
+
+        _barrelAnimationControll = _playerComponents.Barrel.GetComponent<BarrelAnimationControll>();
     }
 
     private void SetupSettings()
@@ -54,6 +60,7 @@ public class Player_Move: State
 
     private void CharacterRotation()
     {
+        if(!_playerComponents.PlayerSm.isMoving()) return;
         _playerComponents.PlayerTransform.transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
     }
     
