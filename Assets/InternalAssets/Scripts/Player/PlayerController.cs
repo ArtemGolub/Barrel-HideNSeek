@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
         _animationControll.MoveAnimation(true);
         _barrelController._animator.IsMove(true);
         transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
-        
     }
 
     private void GetBarrel()

@@ -4,14 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimationControll : MonoBehaviour
 {
-    private Animator _animator;
+    private PlayerComponents _playerComponents;
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _playerComponents = GetComponent<PlayerComponents>();
     }
     
     public void MoveAnimation(bool isMove)
     {
-        _animator.SetBool("isMove", isMove);
+        _playerComponents.Animator.SetBool("isMove", isMove);
     }
 }
