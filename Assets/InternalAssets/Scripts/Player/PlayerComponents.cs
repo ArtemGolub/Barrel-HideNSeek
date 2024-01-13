@@ -20,17 +20,4 @@ public class PlayerComponents : MonoBehaviour
     [Header("Barrel Settings")] 
     public Transform Barrel;
     public Transform BarrelHandler;
-
-    private void Awake()
-    {
-        InitComponents();
-    }
-    private void InitComponents()
-    {
-        Rigidbody = GetComponent<Rigidbody>();
-        AnimationControll = GetComponent<PlayerAnimationControll>();
-        Animator = GetComponent<Animator>();
-        PlayerSm = GetComponent<Player_SM>();
-        BarrelController = GetComponent<BarrelController>();
-    }
 }

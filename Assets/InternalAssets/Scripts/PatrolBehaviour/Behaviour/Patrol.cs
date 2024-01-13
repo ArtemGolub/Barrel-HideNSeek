@@ -47,9 +47,6 @@ public class Patrol : IPatrolBehaviour
     
 }
 
-
-// TODO Level Design
-
 // TODO PlayerDeath BUGfix
 
 // TODO ReadMe

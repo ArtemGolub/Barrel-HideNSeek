@@ -12,7 +12,8 @@ public class EnemyAnimationControll : MonoBehaviour
 
     public void IsMove(bool isMove)
     {
-        _components.Animator.SetBool("isMove", isMove);
+        //get from components
+        transform.GetComponent<Animator>().SetBool("isMove", isMove);
     }
 
     public void IsCatch(bool isCatch)
