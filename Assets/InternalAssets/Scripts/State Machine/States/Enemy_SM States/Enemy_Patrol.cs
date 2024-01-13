@@ -8,7 +8,7 @@ public class Enemy_Patrol: State
     public Enemy_Patrol(EnemyComponents components)
     {
         _components = components;
-        _patrolBehaviour = BehaviourFabric.CreateBehaviour(_components.settings.enemyType);
+        _patrolBehaviour = BehaviourFabric.CreatePatrolBehaviour(_components.settings.enemyType);
     }
     
     public override void Enter()

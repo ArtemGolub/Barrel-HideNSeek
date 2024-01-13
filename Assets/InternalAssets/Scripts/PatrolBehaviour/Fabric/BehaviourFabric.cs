@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class BehaviourFabric
 {
-    public static IPatrolBehaviour CreateBehaviour(EnemyType enemyType)
+    public static IPatrolBehaviour CreatePatrolBehaviour(EnemyType enemyType)
     {
         switch (enemyType)
         {
