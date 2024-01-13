@@ -46,9 +46,7 @@ public class Patrol : IPatrolBehaviour
     
     
 }
-// TODO Pop-up Win
-// TODO Pop-up Lose
-// TODO Restart Button
+
 
 // TODO Level Design
 

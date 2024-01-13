@@ -6,6 +6,7 @@ public class Player_Death: State
     public override void Enter()
     {
         Debug.Log("Death");
+       
     }
 
     public override void Exit()
