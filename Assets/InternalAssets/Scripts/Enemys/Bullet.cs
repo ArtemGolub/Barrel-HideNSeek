@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour, IBullet
     
     private void HitTarget()
     {
-        target.GetComponent<Player_SM>().TriggerDeath();
+       // target.GetComponent<Player_SM>().TriggerDeath();
         Instantiate(prHitFX, target.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

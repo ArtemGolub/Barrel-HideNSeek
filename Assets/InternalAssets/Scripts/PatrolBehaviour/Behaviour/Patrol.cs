@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Patrol : IPatrolBehaviour
 {
+    private EnemyComponents _components;
     private List<Transform> _patrolPoints;
     private NavMeshAgent _agent;
     private float offSet = 0.2f;
@@ -12,14 +13,17 @@ public class Patrol : IPatrolBehaviour
     
     public void Enter(EnemyComponents enemyComponents)
     {
-        _agent = enemyComponents.Agent;
-        _patrolPoints = enemyComponents.PatrolPoints;
+        _components = enemyComponents;
+        _agent = _components.Agent;
+        _patrolPoints = _components.PatrolPoints;
         _agent.isStopped = false;
+        _components.AnimationControll.IsMove(true);
     }
 
     public void Exit(EnemyComponents enemyComponents)
     {
         _agent.isStopped = true;
+        _components.AnimationControll.IsMove(false);
     }
 
     public void Update(EnemyComponents enemyComponents)
@@ -42,9 +46,6 @@ public class Patrol : IPatrolBehaviour
     
     
 }
-
-// TODO Enemy Animations
-
 // TODO Pop-up Win
 // TODO Pop-up Lose
 // TODO Restart Button
