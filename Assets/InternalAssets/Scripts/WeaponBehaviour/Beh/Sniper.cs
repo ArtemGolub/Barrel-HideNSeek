@@ -37,9 +37,10 @@ public class Sniper : IWeaponBehaviour
         }
         if (nearestPlayer != null && shortestDistance <= AttackRange)
         {
-            _weapon.Target = nearestPlayer;
             var playerCheck = player.GetComponent<Player_SM>();
             if (playerCheck.isHidden()) return;
+            _weapon.Target = nearestPlayer;
+            _weapon.GetComponent<Enemy_SM>(). EnemyCatch();
             playerCheck.Gotcha(_weapon.transform);
             Shoot();
         }

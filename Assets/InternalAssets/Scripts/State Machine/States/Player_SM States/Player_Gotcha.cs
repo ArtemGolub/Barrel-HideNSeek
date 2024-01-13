@@ -15,7 +15,6 @@ public class Player_Gotcha: State
     {
         _components.BarrelController.RemoveBarrel();
         _components.AnimationControll.GotchaAnim(true);
-        _components.BarrelController.RemoveBarrel();
         _components.PlayerTransform.LookAt(lookTarget);
         _components.Rigidbody.velocity = new Vector3(0, 0, 0);
         EventManager.current.Lose.Invoke();

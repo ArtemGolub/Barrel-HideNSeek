@@ -38,12 +38,14 @@ public class Pistol : IWeaponBehaviour
                 {
                     var playerCheck = target.GetComponent<Player_SM>();
                     if (playerCheck.isHidden()) return;
-                    
-                    canSeePlayer = true;
                     _weapon.Target = target;
+                    canSeePlayer = true;
+                    _weapon.GetComponent<Enemy_SM>(). EnemyCatch();
+                    playerCheck.Gotcha(_weapon.transform);
                     Shoot();
                 }
                 else
+                
                     canSeePlayer = false;
             }
             else

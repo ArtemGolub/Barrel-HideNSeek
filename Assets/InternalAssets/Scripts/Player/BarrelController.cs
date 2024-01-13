@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BarrelController : MonoBehaviour
@@ -28,6 +29,6 @@ public class BarrelController : MonoBehaviour
         if(_playerComponents.Barrel == null) return;
         var barrel = _playerComponents.Barrel;
         barrel.transform.SetParent(null);
-        _animator.IsRemove(true);
+        //_animator.IsRemove(true);
     }
 }

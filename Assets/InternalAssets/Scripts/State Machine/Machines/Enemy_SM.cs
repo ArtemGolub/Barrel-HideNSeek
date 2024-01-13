@@ -38,12 +38,10 @@ using UnityEngine.AI;
         private void Update()
         {
             _SM.CurrentState.Update();
-            EnemyCatch();
         }
 
         public void EnemyCatch()
         {
-            if(_components.weapon.Target == null) return;
             _SM.ChangeState(_enemyCatch);
         }
     }

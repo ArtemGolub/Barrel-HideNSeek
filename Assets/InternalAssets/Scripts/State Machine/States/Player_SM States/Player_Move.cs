@@ -27,6 +27,11 @@ public class Player_Move: State
         _barrelAnimationControll.IsMove(true);
     }
 
+    public override void Exit()
+    {
+        _rigidbody.velocity = new Vector3(0, 0, 0);
+    }
+
 
     public override void Update()
     {
@@ -56,7 +61,8 @@ public class Player_Move: State
     private void CharacterRotation()
     {
         if(!_playerComponents.PlayerSm.isMoving()) return;
-        _playerComponents.PlayerTransform.transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+        Vector3 direction = new Vector3(_joystick.Horizontal, _rigidbody.velocity.y, _joystick.Vertical);
+        _playerComponents.PlayerTransform.transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
     }
     
     

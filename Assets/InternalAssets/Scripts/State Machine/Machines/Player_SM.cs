@@ -8,7 +8,6 @@ using StateManager;
         private Player_Hide _hide;
         private Player_Move _move;
         private Player_Gotcha _gotcha;
-        private Player_Death _death;
         
         public bool isMoving()
         {
@@ -23,7 +22,7 @@ using StateManager;
 
         private bool isMovementDisabled()
         {
-            if (_SM.CurrentState == _gotcha || _SM.CurrentState == _death) return true;
+            if (_SM.CurrentState == _gotcha) return true;
             return false;
         }
         
@@ -60,7 +59,6 @@ using StateManager;
             _hide = new Player_Hide(_playerComponents);
             _move = new Player_Move(_playerComponents);
             _gotcha = new Player_Gotcha(_playerComponents);
-            _death = new Player_Death();
         }
 
         private void InitComponents()
@@ -72,10 +70,5 @@ using StateManager;
         {
             _gotcha.UpdateTarget(target);
             _SM.ChangeState(_gotcha);
-        }
-
-        public void TriggerDeath()
-        {
-            _SM.ChangeState(_death);
         }
     }
