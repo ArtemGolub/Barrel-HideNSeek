@@ -14,4 +14,9 @@ public class EnemyAnimationControll : MonoBehaviour
     {
         _components.Animator.SetBool("isMove", isMove);
     }
+
+    public void IsCatch(bool isCatch)
+    {
+        _components.Animator.SetBool("isCatch", isCatch);
+    }
 }

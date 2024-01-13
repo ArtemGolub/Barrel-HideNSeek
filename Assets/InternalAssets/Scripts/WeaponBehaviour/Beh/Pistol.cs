@@ -36,6 +36,9 @@ public class Pistol : IWeaponBehaviour
 
                 if (!Physics.Raycast(_weapon.transform.position, directionToTarget, distanceToTarget, obstacleMask))
                 {
+                    var playerCheck = target.GetComponent<Player_SM>();
+                    if (playerCheck.isHidden()) return;
+                    
                     canSeePlayer = true;
                     _weapon.Target = target;
                     Shoot();

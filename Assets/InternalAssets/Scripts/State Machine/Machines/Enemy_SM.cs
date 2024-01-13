@@ -1,8 +1,8 @@
-
-using System;
 using UnityEngine;
 using StateManager;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
     public class Enemy_SM: MonoBehaviour
     {
         private StateMachine _SM;
@@ -16,7 +16,7 @@ using StateManager;
             _SM = new StateMachine();
 
             _enemyPatrol = new Enemy_Patrol(_components);
-            _enemyCatch = new Enemy_Catch();
+            _enemyCatch = new Enemy_Catch(_components);
         }
 
         private void InitComponents()
@@ -38,5 +38,12 @@ using StateManager;
         private void Update()
         {
             _SM.CurrentState.Update();
+            EnemyCatch();
+        }
+
+        public void EnemyCatch()
+        {
+            if(_components.weapon.Target == null) return;
+            _SM.ChangeState(_enemyCatch);
         }
     }

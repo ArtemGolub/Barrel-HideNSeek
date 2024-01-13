@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -25,6 +26,11 @@ public class Weapon : MonoBehaviour
     
     private void StartUpdatingTarget()
     {
+        if (Target != null)
+        {
+            CancelInvoke("StartUpdatingTarget");
+            return;
+        }
         _weaponBehaviour.UpdateTarget();
     }
 
