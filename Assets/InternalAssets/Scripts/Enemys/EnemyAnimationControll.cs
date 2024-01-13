@@ -19,5 +19,11 @@ public class EnemyAnimationControll : MonoBehaviour
     public void IsCatch(bool isCatch)
     {
         _components.Animator.SetBool("isCatch", isCatch);
+        _components.Animator.SetBool("isShoot", true);
+    }
+
+    public void Shoot()
+    {
+        _components.weapon._weaponBehaviour.Shoot();
     }
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IWeaponBehaviour
 {
     public void UpdateTarget();
+    public void Shoot();
 }

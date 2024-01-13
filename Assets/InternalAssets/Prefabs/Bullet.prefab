@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936f911cd3bde45ea87f28f5a01ca8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   offSet: 0.2
   prHitFX: {fileID: 7838268676020772051, guid: eab2252a4145f41bf9e5e4bca2850aee, type: 3}
 --- !u!1001 &5644877934242151659

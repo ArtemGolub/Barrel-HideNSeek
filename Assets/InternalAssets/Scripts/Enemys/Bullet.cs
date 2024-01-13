@@ -40,9 +40,10 @@ public class Bullet : MonoBehaviour, IBullet
     
     private void HitTarget()
     {
-       // target.GetComponent<Player_SM>().TriggerDeath();
-        Destroy(target.GetComponent<PlayerComponents>().Barrel.gameObject);
+        var barrel = target.GetComponent<PlayerComponents>().Barrel.gameObject;
+        if(barrel) Destroy(barrel);
         Instantiate(prHitFX, target.transform.position, Quaternion.identity);
+        EventManager.current.Lose.Invoke();
         Destroy(gameObject);
     }
 }

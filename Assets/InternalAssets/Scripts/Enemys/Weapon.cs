@@ -7,12 +7,13 @@ public class Weapon : MonoBehaviour
     public WeaponSettings Settings;
     [HideInInspector] public Transform Target;
     public Transform rangeRadius;
+    public IWeaponBehaviour _weaponBehaviour;
     
     [Header("Bullet Settings")]
     [SerializeField]private GameObject prBullet;
     [SerializeField]private Transform bulletInitPlace;
     
-    private IWeaponBehaviour _weaponBehaviour;
+   
     public GameObject InstantiateBullet()
     {
         return Instantiate(prBullet, bulletInitPlace);
@@ -21,7 +22,7 @@ public class Weapon : MonoBehaviour
     {
         _weaponBehaviour = BehaviourFabric.CreateWeaponBehaviour(Settings.weaponType, this);
         SetupRangeRadius();
-        InvokeRepeating("StartUpdatingTarget", 0,0.5f);
+        InvokeRepeating("StartUpdatingTarget", 0,0.2f);
     }
     
     private void StartUpdatingTarget()

@@ -1,4 +1,5 @@
 using StateManager;
+using UnityEngine;
 
 public class Enemy_Catch: State
 {
@@ -10,7 +11,6 @@ public class Enemy_Catch: State
     
     public override void Enter()
     {
-        _components.EnemyTransform.transform.LookAt(_components.weapon.Target);
         _components.AnimationControll.IsCatch(true);
     }
 
@@ -21,6 +21,6 @@ public class Enemy_Catch: State
 
     public override void Update()
     {
-        
+        _components.EnemyTransform.transform.LookAt(_components.weapon.Target);
     }
 }

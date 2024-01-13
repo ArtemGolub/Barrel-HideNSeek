@@ -40,15 +40,16 @@ using StateManager;
         private void FixedUpdate()
         {
             if(isMovementDisabled()) return;
-            if (isMoving())
+            if (!isMoving())
             {
-                _SM.ChangeState(_move);
-                _move._joystick = _playerComponents.Joystick;
+                _SM.ChangeState(_hide);
+                return;
             }
             else
             {
-                _SM.ChangeState(_hide);
+                _SM.ChangeState(_move);
             }
+           
             _SM.CurrentState.Update();
         }
         

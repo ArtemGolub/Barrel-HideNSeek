@@ -42,7 +42,7 @@ public class Pistol : IWeaponBehaviour
                     canSeePlayer = true;
                     _weapon.GetComponent<Enemy_SM>(). EnemyCatch();
                     playerCheck.Gotcha(_weapon.transform);
-                    Shoot();
+                    //Shoot();
                 }
                 else
                 
@@ -55,7 +55,7 @@ public class Pistol : IWeaponBehaviour
             canSeePlayer = false;
     }
     
-    private void Shoot()
+    public void Shoot()
     {
         var bulletGo = _weapon.InstantiateBullet();
         IBullet bullet = bulletGo.GetComponent<IBullet>();

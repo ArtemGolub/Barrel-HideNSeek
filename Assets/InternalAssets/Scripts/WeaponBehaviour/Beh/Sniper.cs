@@ -11,7 +11,7 @@ public class Sniper : IWeaponBehaviour
         AttackRange = _weapon.Settings.AttackRange;
     }
     
-    private void Shoot()
+    public void Shoot()
     {
         var bulletGo = _weapon.InstantiateBullet();
         IBullet bullet = bulletGo.GetComponent<IBullet>();
@@ -42,7 +42,7 @@ public class Sniper : IWeaponBehaviour
             _weapon.Target = nearestPlayer;
             _weapon.GetComponent<Enemy_SM>(). EnemyCatch();
             playerCheck.Gotcha(_weapon.transform);
-            Shoot();
+            //Shoot();
         }
     }
 }
