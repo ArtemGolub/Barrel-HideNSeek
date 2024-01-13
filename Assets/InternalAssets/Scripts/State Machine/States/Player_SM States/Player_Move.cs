@@ -27,11 +27,6 @@ public class Player_Move: State
         _barrelAnimationControll.IsMove(true);
     }
 
-    public override void Exit()
-    {
-        _animationControll.MoveAnimation(false);
-        _barrelAnimationControll.IsMove(false);
-    }
 
     public override void Update()
     {

@@ -26,8 +26,8 @@ public class BarrelController : MonoBehaviour
     public void RemoveBarrel()
     {
         if(_playerComponents.Barrel == null) return;
-        
         var barrel = _playerComponents.Barrel;
         barrel.transform.SetParent(null);
+        _animator.IsRemove(true);
     }
 }
