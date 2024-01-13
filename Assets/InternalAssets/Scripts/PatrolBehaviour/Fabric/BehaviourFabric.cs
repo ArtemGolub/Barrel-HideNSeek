@@ -30,7 +30,7 @@ public static class BehaviourFabric
         {
             case WeaponType.Pistol:
             {
-                return new Pistol();
+                return new Pistol(weapon);
             }
             case WeaponType.Sniper:
             {

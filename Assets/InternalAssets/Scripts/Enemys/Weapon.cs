@@ -30,13 +30,22 @@ public class Weapon : MonoBehaviour
 
     private void SetupRangeRadius()
     {
-        rangeRadius.transform.localScale = new Vector3(Settings.AttackRange, 1, Settings.AttackRange);
+        if (Settings.weaponType == WeaponType.Sniper)
+        {
+            rangeRadius.transform.localScale = new Vector3(Settings.AttackRange, 1, Settings.AttackRange);
+        }
+        else
+        {
+            rangeRadius.transform.localScale = new Vector3(Settings.AttackRange - 1, 1, Settings.AttackRange - 1);
+            rangeRadius.localPosition += new Vector3(0, 0, 1);
+        }
+       
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, Settings.AttackRange);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawSphere(transform.position, Settings.AttackRange);
+    // }
 }
 
 

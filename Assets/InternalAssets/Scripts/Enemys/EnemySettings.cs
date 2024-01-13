@@ -3,6 +3,5 @@ using UnityEngine;
 public class EnemySettings : ScriptableObject
 {
     public EnemyType enemyType;
-    public float attackRange;
     public float moveSpeed;
 }
